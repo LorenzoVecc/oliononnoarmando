@@ -18,9 +18,13 @@
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
     
+    /* Responsive Spacing & Scaling */
     --header-height: 80px;
+    --mobile-header-height: 65px;
+    --container-padding: 1.5rem;
+    
     --transition-s: 0.3s ease;
-    --transition-m: 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Curva premium per transizioni lunghe */
+    --transition-m: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
@@ -112,9 +116,16 @@ header {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: var(--bg-color); /* Sempre solido per non accavallarsi ai testi della hero boxed */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    background-color: var(--bg-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     z-index: 1000;
+    transition: height var(--transition-s);
+}
+
+@media (max-width: 768px) {
+    header {
+        height: var(--mobile-header-height);
+    }
 }
 
 .nav-container {
@@ -617,20 +628,28 @@ footer {
         display: flex;
     }
 
+    .nav-container {
+        padding: 0 1.2rem;
+    }
+
+    .logo {
+        font-size: 1.4rem; /* Logo più compatto su mobile */
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
+        width: 100%; /* Copre tutto lo schermo per evitare problemi di overflow */
         height: 100vh;
         background-color: var(--bg-color);
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
-        padding-left: 3rem;
-        gap: 2.5rem;
+        align-items: center;
+        padding: 0;
+        gap: 2rem;
         transition: right var(--transition-m);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        box-shadow: none;
         z-index: 1000;
     }
 
@@ -640,94 +659,110 @@ footer {
 
     .nav-link {
         color: var(--text-color);
-        font-size: 1.5rem;
-        text-shadow: none;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
     }
 
     /* Mobile Typography & Spacing Fixes */
     .hero-boxed {
-        padding-top: calc(var(--header-height) + 2rem); 
-        padding-bottom: 2rem;
+        padding-top: calc(var(--mobile-header-height) + 2rem); 
+        padding-bottom: 3rem;
     }
 
-    .hero-title-dark { font-size: 2.2rem; }
-    .hero-title-dark span { font-size: 2.5rem; }
+    .hero-title-dark { 
+        font-size: clamp(2rem, 10vw, 2.5rem); /* Fluid font size */
+        margin-bottom: 0.5rem;
+    }
+    .hero-title-dark span { 
+        font-size: clamp(2.4rem, 12vw, 3rem); 
+    }
     
     .hero-subtitle-dark {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 2rem;
+        padding: 0 1rem;
     }
 
     .section {
-        padding: 3.5rem 1.5rem;
+        padding: 4rem 1.2rem;
     }
 
     .section-title {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
+        font-size: clamp(1.8rem, 8vw, 2.2rem);
+        margin-bottom: 1.2rem;
     }
 
     .text-body {
         font-size: 1rem;
+        line-height: 1.5;
     }
 
     .custom-quote {
-        font-size: 1.2rem;
-        padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+        font-size: 1.1rem;
+        padding: 1.5rem 1.2rem 1.5rem 2rem;
+        margin: 2rem 0;
     }
 
     .quote-icon {
-        font-size: 2rem;
-        top: 1rem;
-        left: 0.5rem;
+        font-size: 1.8rem;
+        top: 0.8rem;
+        left: 0.4rem;
     }
 
     /* Video & Cards Mobile Optimization */
     .video-container {
         border-radius: 12px;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        width: 100%;
     }
     
     .video-large {
         border-radius: 8px;
+        max-height: 65vh; /* Più centrato su mobile */
     }
 
     .audio-toggle-btn {
-        bottom: 15px;
-        right: 15px;
+        bottom: 12px;
+        right: 12px;
         padding: 0.4rem 0.8rem;
         font-size: 0.8rem;
+        background-color: rgba(0, 0, 0, 0.7);
     }
     
     .features-column {
-        gap: 1.5rem;
+        gap: 1.2rem;
+        margin-top: 2rem;
     }
 
     .feature-card {
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
         gap: 1rem;
         flex-direction: column;
         align-items: center;
         text-align: center;
+        border-radius: 15px;
     }
 
     .feature-icon {
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
+        margin-bottom: 0.5rem;
     }
 
     .feature-text h3 {
         font-size: 1.2rem;
+        margin-bottom: 0.4rem;
     }
 
     .feature-text p {
         font-size: 0.9rem;
+        line-height: 1.4;
     }
 
     /* CTA Section Mobile */
     .cta-section {
-        padding: 4rem 1.5rem;
+        padding: 4.5rem 1.2rem;
     }
 
     .cta-title {
@@ -735,32 +770,48 @@ footer {
     }
 
     .cta-description {
-        font-size: 1.05rem;
-        margin-bottom: 2rem;
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .cta-actions {
+        gap: 1rem;
+        width: 100%;
     }
 
     .btn-whatsapp-large {
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
+        padding: 1rem;
+        font-size: 1.1rem;
         width: 100%;
         justify-content: center;
     }
 
     .phone-link {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
+        padding: 1rem;
+        font-size: 1.1rem;
         width: 100%;
         justify-content: center;
     }
 
     /* Floating Button */
     .floating-whatsapp {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
         bottom: 20px;
         right: 20px;
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
     }
+}
+
+/* Evitiamo stati hover appiccicosi su mobile */
+@media (hover: hover) {
+    .nav-link:hover { color: var(--accent-color); }
+    .btn-nav:hover { background-color: var(--wa-color-hover); transform: translateY(-2px); }
+    .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: rgba(201, 162, 39, 0.2); }
+    .btn-whatsapp-large:hover { background-color: var(--wa-color-hover); transform: translateY(-3px); }
+    .phone-link:hover { background-color: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-3px); }
+    .floating-whatsapp:hover { transform: scale(1.1); }
 }
 
 /* ==========================================================================
