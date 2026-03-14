@@ -2,17 +2,24 @@
  * Arte & Anima - JavaScript
  */
 
-// 1. Gestione Loader - Lanciato il prima possibile
+// 1. Kickstart Video Autoplay (per mobile)
+const kickstartVideos = () => {
+    const videos = document.querySelectorAll('video[autoplay]');
+    videos.forEach(video => {
+        video.play().catch(e => {
+            console.log("Autoplay blocked, waiting for interaction");
+        });
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-        // Rimuoviamo il loader istantaneamente per velocizzare la percezione
-        loader.style.opacity = '0';
-        loader.style.visibility = 'hidden';
-        
-        // Forza trigger onscroll iniziale per le animazioni reveal gia' in view
-        handleScroll();
-    }
+    kickstartVideos();
+    // Re-tentativo su primo tocco per bypassare blocchi aggressivi
+    document.addEventListener('touchstart', kickstartVideos, { once: true });
+    document.addEventListener('click', kickstartVideos, { once: true });
+    
+    // Forza trigger onscroll iniziale per le animazioni reveal gia' in view
+    handleScroll();
 });
 
 // Elem. DOM principali
