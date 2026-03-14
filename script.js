@@ -2,18 +2,16 @@
  * Arte & Anima - JavaScript
  */
 
-// 1. Gestione Loader
-window.addEventListener('load', () => {
+// 1. Gestione Loader - Lanciato il prima possibile
+document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     if (loader) {
-        // Aggiungiamo un leggero delay per rendere fluido l'ingresso
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            loader.style.visibility = 'hidden';
-            
-            // Forza trigger onscroll iniziale per le animazioni reveal gia' in view
-            handleScroll();
-        }, 500);
+        // Rimuoviamo il loader istantaneamente per velocizzare la percezione
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        
+        // Forza trigger onscroll iniziale per le animazioni reveal gia' in view
+        handleScroll();
     }
 });
 

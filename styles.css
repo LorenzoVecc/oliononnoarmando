@@ -665,8 +665,8 @@ footer {
 
     /* Mobile Typography & Spacing Fixes */
     .hero-boxed {
-        padding-top: calc(var(--mobile-header-height) + 2rem); 
-        padding-bottom: 3rem;
+        padding-top: calc(var(--mobile-header-height) + 1rem); /* Reduced further */
+        padding-bottom: 2rem;
     }
 
     .hero-title-dark { 
