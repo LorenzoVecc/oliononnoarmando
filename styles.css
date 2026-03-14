@@ -841,3 +841,10 @@ footer {
 .reveal-right.active {
     transform: translateX(0);
 }
+
+@media (max-width: 768px) {
+    .reveal {
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out; /* Velocizzate su mobile */
+        transform: translateY(20px); /* Ridotta la distanza di movimento */
+    }
+}
