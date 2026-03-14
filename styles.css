@@ -293,6 +293,50 @@ header {
 }
 
 /* ==========================================================================
+   REGION HIGHLIGHT (CALABRIA IMAGE)
+   ========================================================================== */
+.region-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: rgba(43, 58, 32, 0.03);
+    border-radius: 12px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.calabria-img {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    transition: transform var(--transition-s);
+}
+
+.region-highlight:hover .calabria-img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.region-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .region-highlight {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .calabria-img {
+        width: 100px;
+    }
+}
+
+/* ==========================================================================
    STORIA / CHI SIAMO
    ========================================================================== */
 .two-columns {
