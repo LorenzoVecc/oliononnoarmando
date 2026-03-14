@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locandina Olio Nonno Armando</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Impostazioni per formato A4 standard */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        :root {
+            --primary: #2b3a20;
+            --accent: #c9a227;
+            --bg: #faf9f6;
+            --text: #33312e;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .poster {
+            width: 210mm;
+            height: 297mm;
+            background-color: var(--bg);
+            padding: 30mm 20mm;
+            box-sizing: border-box;
+            position: relative;
+            text-align: center;
+            border: 2px solid var(--accent);
+            outline: 15px solid var(--primary);
+            outline-offset: -25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.2);
+        }
+
+        /* Elementi decorativi */
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top right, rgba(201, 162, 39, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .decorative-leaf {
+            position: absolute;
+            color: rgba(43, 58, 32, 0.05);
+            font-size: 200px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .leaf-top-left { top: -20px; left: -20px; transform: rotate(-45deg); }
+        .leaf-bottom-right { bottom: -20px; right: -20px; transform: rotate(135deg); }
+
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .logo-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 65px;
+            color: var(--primary);
+            line-height: 0.9;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .logo-title span {
+            color: var(--accent);
+            font-size: 75px;
+            display: block;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            color: var(--text);
+            margin-top: 20px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .calabria-highlight {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .calabria-highlight img {
+            width: 60px;
+            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.1));
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            text-align: left;
+            margin: 10px auto;
+            width: 85%;
+            z-index: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 12px;
+        }
+
+        .feature-item i {
+            color: var(--accent);
+            font-size: 35px;
+            width: 45px;
+            margin-top: 5px;
+        }
+
+        .feature-item .text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-item strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .feature-item span {
+            font-size: 18px;
+            color: rgba(0,0,0,0.6);
+            margin-top: 5px;
+        }
+
+        .qr-section {
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            display: inline-block;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            z-index: 1;
+        }
+
+        .qr-code {
+            width: 160px;
+            height: 160px;
+        }
+
+        .qr-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: var(--primary);
+            margin-top: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .footer {
+            margin-top: 20px;
+            z-index: 1;
+        }
+
+        .prod-msg {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="poster">
+        <i class="fa-solid fa-leaf decorative-leaf leaf-top-left"></i>
+        <i class="fa-solid fa-leaf decorative-leaf leaf-bottom-right"></i>
+
+        <div class="header">
+            <h1 class="logo-title">Olio<br><span>Nonno Armando</span></h1>
+            <p class="subtitle">Nel cuore della <strong>Calabria</strong></p>
+            <div class="calabria-highlight">
+                <img src="Calabria.png" alt="Calabria">
+                <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--primary); font-style: italic;">L'eccellenza di Zinga</span>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <i class="fa-solid fa-leaf"></i>
+                <div class="text-group">
+                    <strong>100% Naturale</strong>
+                    <span>Purezza assoluta, senza agenti chimici.</span>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-hand-holding-hand"></i>
+                <div class="text-group">
+                    <strong>Raccolta Manuale</strong>
+                    <span>Amore e cura per ogni singola pianta.</span>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-temperature-arrow-down"></i>
+                <div class="text-group">
+                    <strong>Spremitura a Freddo</strong>
+                    <span>Molitura artigianale con macine in pietra.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qr-section">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://oliononnoarmando.netlify.app/&color=2b3a20"
+                alt="QR Code Sito" class="qr-code">
+            <p class="qr-text">Inquadra per scoprire la<br>nostra storia e acquistare</p>
+        </div>
+
+        <div class="footer">
+            <p class="prod-msg">Produzione limitata: un dono raro della nostra terra.</p>
+            <div class="whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> +39 351 447 0333
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
