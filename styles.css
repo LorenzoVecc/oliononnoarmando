@@ -17,7 +17,7 @@
     
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
-    --font-brand: 'Pinyon Script', cursive; /* Nuovo font particolare per Santa Venere */
+    --font-brand: 'Cinzel', serif; /* Font spigoloso e stampatello per Santa Venere */
     
     /* Responsive Spacing & Scaling */
     --header-height: 80px;
@@ -109,13 +109,16 @@ header {
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    font-family: var(--font-brand);
+    text-transform: uppercase;
     color: var(--primary-color);
     text-decoration: none;
     letter-spacing: 1px;
     display: flex;
     flex-direction: column;
-    line-height: 1;
+    line-height: 0.9;
+    font-weight: 700;
 }
 
 .logo small {
@@ -223,18 +226,20 @@ header {
     color: var(--primary-color);
 }
 
-.hero-title-dark .brand-script {
+.hero-title-dark .brand-name {
     font-family: var(--font-brand);
-    font-size: 5rem;
+    font-size: 4.8rem;
     color: var(--accent-color);
     display: block;
     margin-top: 0.5rem;
-    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -2px;
 }
 
 @media (min-width: 768px) {
     .hero-title-dark { font-size: 4.5rem; }
-    .hero-title-dark .brand-script { font-size: 6.5rem; margin-top: 0; }
+    .hero-title-dark .brand-name { font-size: 6.5rem; margin-top: 0; }
 }
 
 .hero-subtitle-dark {
@@ -715,9 +720,10 @@ footer {
     .hero-title-dark { 
         font-size: clamp(2rem, 8vw, 3rem);
     }
-    .hero-title-dark .brand-script { 
-        font-size: clamp(3.5rem, 15vw, 5rem);
-        margin-top: -0.5rem;
+    .hero-title-dark .brand-name { 
+        font-size: clamp(3.2rem, 14vw, 4.5rem);
+        margin-top: 0;
+        letter-spacing: -1px;
     }
     
     .hero-subtitle-dark {
