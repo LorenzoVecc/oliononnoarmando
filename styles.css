@@ -17,6 +17,7 @@
     
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
+    --font-brand: 'Pinyon Script', cursive; /* Nuovo font particolare per Santa Venere */
     
     /* Responsive Spacing & Scaling */
     --header-height: 80px;
@@ -108,10 +109,23 @@ header {
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
     text-decoration: none;
     letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo small {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-top: 3px;
+    font-weight: 500;
 }
 
 .nav-links {
@@ -191,24 +205,36 @@ header {
     padding-bottom: 4rem;
 }
 
-.hero-title-dark {
-    font-size: 3rem;
+.hero-legacy {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent-color);
     margin-bottom: 1rem;
-    font-style: italic;
-    line-height: 1.1;
-    color: var(--primary-color);
-    font-family: var(--font-heading);
+    font-weight: 500;
 }
 
-.hero-title-dark span {
+.hero-title-dark {
     font-size: 3.5rem;
+    margin-bottom: 2rem;
+    line-height: 1;
+    color: var(--primary-color);
+}
+
+.hero-title-dark .brand-script {
+    font-family: var(--font-brand);
+    font-size: 5rem;
     color: var(--accent-color);
     display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
 }
 
 @media (min-width: 768px) {
-    .hero-title-dark { font-size: 4rem; }
-    .hero-title-dark span { font-size: 4.5rem; }
+    .hero-title-dark { font-size: 4.5rem; }
+    .hero-title-dark .brand-script { font-size: 6.5rem; margin-top: 0; }
 }
 
 .hero-subtitle-dark {
@@ -646,14 +672,18 @@ footer {
     }
 
     .logo {
-        font-size: 1.4rem; /* Logo più compatto su mobile */
+        font-size: 1.3rem;
+    }
+
+    .logo small {
+        font-size: 0.6rem;
     }
 
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 100%; /* Copre tutto lo schermo per evitare problemi di overflow */
+        width: 100%;
         height: 100vh;
         background-color: var(--bg-color);
         flex-direction: column;
@@ -678,16 +708,16 @@ footer {
 
     /* Mobile Typography & Spacing Fixes */
     .hero-boxed {
-        padding-top: calc(var(--mobile-header-height) + 1rem); /* Reduced further */
+        padding-top: calc(var(--mobile-header-height) + 1rem); 
         padding-bottom: 2rem;
     }
 
     .hero-title-dark { 
-        font-size: clamp(2rem, 10vw, 2.5rem); /* Fluid font size */
-        margin-bottom: 0.5rem;
+        font-size: clamp(2rem, 8vw, 3rem);
     }
-    .hero-title-dark span { 
-        font-size: clamp(2.4rem, 12vw, 3rem); 
+    .hero-title-dark .brand-script { 
+        font-size: clamp(3.5rem, 15vw, 5rem);
+        margin-top: -0.5rem;
     }
     
     .hero-subtitle-dark {

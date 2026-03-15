@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;600&family=Pinyon+Script&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -23,6 +23,7 @@
             --accent: #c9a227;
             --bg: #faf9f6;
             --text: #33312e;
+            --font-brand: 'Pinyon Script', cursive;
         }
 
         body {
@@ -82,20 +83,35 @@
 
         .logo-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 58px;
+            font-size: 42px;
             color: var(--primary);
-            line-height: 0.9;
+            line-height: 0.8;
             margin: 0;
-            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .logo-title span {
+            font-family: var(--font-brand);
             color: var(--accent);
-            font-size: 68px;
+            font-size: 85px;
             display: block;
             font-style: normal;
-            font-weight: 700;
-            letter-spacing: -1px;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin-top: 5px;
+            text-transform: none;
+        }
+
+        .legacy-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--primary);
+            opacity: 0.6;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .subtitle {
@@ -226,7 +242,8 @@
         <i class="fa-solid fa-leaf decorative-leaf leaf-bottom-right"></i>
 
         <div class="header">
-            <h1 class="logo-title">Olio<br><span>Nonno Armando</span></h1>
+            <span class="legacy-text">L'Eredità di Nonno Armando</span>
+            <h1 class="logo-title">Olio<br><span>Santa Venere</span></h1>
             <p class="subtitle">Nel cuore della <strong>Calabria</strong></p>
             <div class="calabria-highlight">
                 <img src="Calabria.png" alt="Calabria">
